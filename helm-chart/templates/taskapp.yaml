@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: tasksapp-ns
+  name: tasksapp
+  labels:
+    app: tasksapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tasksapp
+  template:
+    metadata:
+      labels:
+        app: tasksapp
+    spec:
+      containers:
+        - name: tasksapp
+          image: {{ .Values.app.containers.image }}
+          ports:
+            - containerPort: {{ .Values.app.containers.ports.containerport }}
+          imagePullPolicy: {{.Values.app.containers.imagepullpolicy}}

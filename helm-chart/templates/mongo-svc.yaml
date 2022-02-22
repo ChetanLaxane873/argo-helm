@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: tasksapp-ns
+  name: mongo
+spec:
+  selector:
+    app: mongo
+  ports:
+    - port: {{.Values.databasesvc.ports.port}}
+      targetPort: {{.Values.databasesvc.ports.targetport}}

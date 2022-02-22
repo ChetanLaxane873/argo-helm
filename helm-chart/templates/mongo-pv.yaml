@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: tasksapp-ns
+  name: mongo-pv
+spec:
+  capacity:
+    storage: {{.Values.database.capacity.storage}}
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: {{.Values.database.hostpath.path}}
