@@ -14,7 +14,7 @@ appsvc:
   ports:
     port: 8080
     targetport: 5000
-  type: LoadBalancer
+  type: NodePort
 
 database: 
   containers:
